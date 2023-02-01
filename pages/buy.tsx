@@ -1,3 +1,4 @@
+import Search from "@/components/search";
 import Image from "next/image";
 import React from "react";
 
@@ -5,7 +6,12 @@ const BuyPage = () => {
   return (
     <>
       <div className="relative">
-        <div className="absolute h-[100%] w-[100%] top-0 bg-black/20" />
+        <div className="absolute h-[100%] w-[100%] top-0 bg-darkLike/40 flex flex-col justify-center items-center gap-10">
+          <h1 className="text-6xl text-whiteLike font-extrabold">
+            Discover your perfect home
+          </h1>
+          <Search />
+        </div>
         <Image
           src="/home5.jpeg"
           alt="house-image"

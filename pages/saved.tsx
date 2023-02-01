@@ -2,17 +2,17 @@ import Search from "@/components/search";
 import Image from "next/image";
 import React from "react";
 
-const RentPage = () => {
+const SavedPage = () => {
   return (
     <div className="relative">
       <div className="absolute h-[100%] w-[100%] top-0 bg-darkLike/40 flex flex-col justify-center items-center gap-10">
         <h1 className="text-6xl text-whiteLike font-extrabold">
-          Discover your perfect rental
+          Houses you liked
         </h1>
         <Search />
       </div>
       <Image
-        src="/home3.jpeg"
+        src="/home4.jpeg"
         alt="rent-house-image"
         width={1000}
         height={400}
@@ -22,4 +22,4 @@ const RentPage = () => {
   );
 };
 
-export default RentPage;
+export default SavedPage;
