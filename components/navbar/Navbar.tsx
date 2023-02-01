@@ -6,6 +6,7 @@ import React, { useState } from "react";
 import { FaHome } from "react-icons/fa";
 import { AiOutlineMenu } from "react-icons/ai";
 import { MdCancel } from "react-icons/md";
+import Menu from "./menu";
 
 const Navbar = () => {
   const [showMenuItem, setShowMenuItem] = useState(false);
@@ -25,6 +26,9 @@ const Navbar = () => {
   const showMenu = () => {
     setShowMenuItem(true);
   };
+  const closeMenuFunction = () => {
+    setShowMenuItem(false);
+  };
 
   return (
     <header className="bg-darkLike h-[4rem] flex items-center justify-between px-[6%]">
@@ -40,7 +44,7 @@ const Navbar = () => {
           </h1>
         </div>
       </Link>
-      <nav className=" items-center flex-1 gap-2 ml-[5%] hidden md:flex">
+      <nav className=" items-center flex-1 gap-2 ml-[5%] hidden md:flex pt-1">
         <Link href="/buy">
           <p
             className={`text-whiteLike text-xl border-b-4 ${
@@ -98,11 +102,11 @@ const Navbar = () => {
         </button>
       </div>
       {showMenuItem && (
-        <div className="absolute h-[100vh] w-[60%] bg-whiteLike  sm:w-[40%] right-0 top-0 z-10 md:hidden ">
-          <button>
-            <MdCancel className="mt-3 ml-3 text-2xl text-darkLike sm:text-3xl" />
-          </button>
-        </div>
+        <Menu
+          closeMenu={closeMenuFunction}
+          menuLogIn={loginButtonHandler}
+          menuSignUp={signupButtonHandler}
+        />
       )}
     </header>
   );

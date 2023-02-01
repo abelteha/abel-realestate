@@ -5,9 +5,7 @@ export default function HomePage() {
   return (
     <div className="relative">
       <div className="absolute h-[100%] w-[100%] top-0 bg-darkLike/40 flex flex-col justify-center items-center gap-10">
-        <h1 className="text-6xl text-whiteLike font-extrabold">
-          The place where you find the right house
-        </h1>
+        <h1 className="hero-h1">The place where you find the right house</h1>
         <Search />
       </div>
       <Image
@@ -15,7 +13,7 @@ export default function HomePage() {
         alt="house-image"
         width={1000}
         height={400}
-        className="w-[100%] h-[450px] object-cover"
+        className="w-[100%] sm:h-[450px] h-[350px] object-cover"
       />
     </div>
   );

@@ -19,6 +19,7 @@ module.exports = {
         slidedown: "slidedown 1s ease-in-out",
         slideleft: "slideleft 1s ease-in-out",
         slideright: "slideright 1s ease-in-out",
+        sliderightmenu: "sliderightmenu 200ms ease-in-out",
         wave: "wave 1.2s linear infinite",
         slowfade: "slowfade 2.2s ease-in-out",
       },
@@ -41,6 +42,10 @@ module.exports = {
         },
         slideright: {
           from: { opacity: 0, transform: "translateX(20px)" },
+          to: { opacity: 1, transform: "translateX(0)" },
+        },
+        sliderightmenu: {
+          from: { opacity: 0, transform: "translateX(200px)" },
           to: { opacity: 1, transform: "translateX(0)" },
         },
         wave: {
