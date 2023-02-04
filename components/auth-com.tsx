@@ -1,12 +1,15 @@
 import { useAppSelector, useAppDispatch } from "@/redux/hooks";
 import { useFormik } from "formik";
-import React from "react";
+import React, { useState } from "react";
 import * as Yup from "yup";
+import { AiFillEye } from "react-icons/ai";
+import { AiFillEyeInvisible } from "react-icons/ai";
 
 const Auth = () => {
   const auth = useAppSelector((state) => state.auth);
   const authState = auth.authState;
   const loginState = authState === "login";
+  const [showPassword, setShowPassword] = useState(false)
 
   const formik = useFormik({
     initialValues: {
@@ -26,9 +29,9 @@ const Auth = () => {
   });
 
 
-  const dispatch = useAppDispatch();
+  // const dispatch = useAppDispatch();
   return (
-    <div className="flex items-center justify-center h-[90vh] ">
+    <div className="flex items-center justify-center h-[90vh] animate-slideright">
       <form
         action=""
         className="flex flex-col gap-5 w-[340px] bg-whiteLike justify-center items-center py-[2rem] px-[1rem] rounded "
@@ -47,19 +50,29 @@ const Auth = () => {
           value={formik.values.email}
         />
         <p className="text-red">
-          {formik.errors.email &&
-            formik.touched.email &&
-            formik.errors.email}
+          {formik.errors.email && formik.touched.email && formik.errors.email}
         </p>
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          className="w-[90%] h-[3rem] px-5 rounded-md outline-darkLike"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.password}
-        />
+        <div className="w-[90%] relative">
+          {" "}
+          <input
+            type={`${!showPassword?'password':'text'}`}
+            name="password"
+            placeholder="Password"
+            className="w-[100%] h-[3rem] px-5 rounded-md outline-darkLike "
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.password}
+          />
+          {!showPassword?<AiFillEye
+            className="absolute text-xl rounded-full cursor-pointer top-4 right-3 hover:bg-whiteLike"
+            onClick={() => setShowPassword(true)}
+          />:
+          <AiFillEyeInvisible
+            className="absolute text-xl rounded-full cursor-pointer top-4 right-3 hover:bg-whiteLike"
+            onClick={() => setShowPassword(false)}
+          />}
+        </div>
+
         <p className="text-red">
           {formik.errors.password &&
             formik.touched.password &&

@@ -4,7 +4,7 @@
 
 @layer components {
   .hero-h1 {
-    @apply mx-10 text-4xl font-extrabold sm:text-6xl text-whiteLike;
+    @apply mx-10 text-4xl font-extrabold sm:text-6xl text-whiteLike animate-slidedown;
   }
   .menu-nav {
     @apply p-3 pl-10 mx-5 mb-2 text-lg rounded-md bg-whiteLike/30 hover:text-whiteLike hover:bg-darkLike;

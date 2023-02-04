@@ -3,7 +3,7 @@ import { IoSearchCircleSharp } from "react-icons/io5";
 
 const Search = () => {
   return (
-    <div className="bg-whiteLike max-w-[35rem] w-[90%] h-[3rem] sm:h-[3.5rem] rounded-full overflow-hidden relative">
+    <div className="bg-whiteLike max-w-[35rem] w-[90%] h-[3rem] sm:h-[3.5rem] rounded-full overflow-hidden relative animate-slideup">
       <input
         type="text"
         className="h-[100%] outline-none bg-whiteLike pl-7 text-lg sm:text-xl"
