@@ -12,6 +12,7 @@ module.exports = {
     colors: {
       darkLike: "#170f11",
       whiteLike: "#e0dfd5",
+      red: "#ff0022",
     },
     extend: {
       animation: {

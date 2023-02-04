@@ -1,11 +1,30 @@
 import { useAppSelector, useAppDispatch } from "@/redux/hooks";
+import { useFormik } from "formik";
 import React from "react";
+import * as Yup from "yup";
 
 const Auth = () => {
   const auth = useAppSelector((state) => state.auth);
   const authState = auth.authState;
   const loginState = authState === "login";
-  console.log(loginState);
+
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+    },
+    validationSchema: Yup.object({
+    
+      email: Yup.string()
+        .email("Invalid email format")
+        .required("Email is required"),
+      password: Yup.string().min(5, 'Must be at least 5 digits').required("Password is required"),
+    }),
+    onSubmit: (values) => {
+      alert(JSON.stringify(values, null, 2));
+    },
+  });
+
 
   const dispatch = useAppDispatch();
   return (
@@ -13,8 +32,9 @@ const Auth = () => {
       <form
         action=""
         className="flex flex-col gap-5 w-[340px] bg-whiteLike justify-center items-center py-[2rem] px-[1rem] rounded "
+        onSubmit={formik.handleSubmit}
       >
-        <h1 className="text-darkLike text-xl uppercase font-extrabold">
+        <h1 className="text-xl font-extrabold uppercase text-darkLike">
           {loginState ? "Login" : "Signup"}
         </h1>
         <input
@@ -22,21 +42,37 @@ const Auth = () => {
           name="email"
           placeholder="E-mail"
           className="w-[90%] h-[3rem] px-5 rounded-md outline-darkLike"
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.email}
         />
+        <p className="text-red">
+          {formik.errors.email &&
+            formik.touched.email &&
+            formik.errors.email}
+        </p>
         <input
           type="password"
           name="password"
           placeholder="Password"
           className="w-[90%] h-[3rem] px-5 rounded-md outline-darkLike"
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.password}
         />
+        <p className="text-red">
+          {formik.errors.password &&
+            formik.touched.password &&
+            formik.errors.password}
+        </p>
         <button
           type="submit"
-          className="bg-darkLike text-whiteLike py-2 px-5 border-2 border-darkLike rounded-lg font-bold hover:bg-whiteLike hover:text-darkLike transition-all mt-5"
+          className="px-5 py-2 mt-5 font-bold transition-all border-2 rounded-lg bg-darkLike text-whiteLike border-darkLike hover:bg-whiteLike hover:text-darkLike"
         >
-          Login
-        </button>{" "}
+          {loginState ? "Login" : "Signup"}
+        </button>
         <button className="text-darkLike/50 hover:text-darkLike">
-          Create new account
+          {loginState ? "Create new account" : "Login with existing account"}
         </button>
       </form>
     </div>

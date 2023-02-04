@@ -31,7 +31,7 @@ const Navbar = () => {
   };
 
   return (
-    <header className="bg-darkLike h-[4rem] flex items-center justify-between px-[6%]">
+    <header className="bg-darkLike h-[4.3rem] flex items-center justify-between px-[6%]">
       <Link href="/" className="transition-all hover:scale-105">
         <div className="flex items-center">
           <FaHome className="mr-2 text-xl sm:text-3xl text-whiteLike" />
@@ -49,7 +49,7 @@ const Navbar = () => {
           <p
             className={`text-whiteLike text-xl border-b-4 ${
               path === "buy" ? "border-whiteLike" : "border-darkLike"
-            }   py-4  px-2  hover:border-white transition`}
+            }   py-4  px-2  hover:border-whiteLike transition`}
           >
             Buy
           </p>
@@ -58,7 +58,7 @@ const Navbar = () => {
           <p
             className={`text-whiteLike text-xl border-b-4 ${
               path === "sell" ? "border-whiteLike" : "border-darkLike"
-            }   py-4  px-2  hover:border-white transition`}
+            }   py-4  px-2  hover:border-whiteLike transition`}
           >
             Sell
           </p>
@@ -67,7 +67,7 @@ const Navbar = () => {
           <p
             className={`text-whiteLike text-xl border-b-4 ${
               path === "rent" ? "border-whiteLike" : "border-darkLike"
-            }   py-4  px-2  hover:border-white transition`}
+            }   py-4  px-2  hover:border-whiteLike transition`}
           >
             Rent
           </p>
@@ -76,7 +76,7 @@ const Navbar = () => {
           <p
             className={`text-whiteLike text-xl border-b-4 ${
               path === "saved" ? "border-whiteLike" : "border-darkLike"
-            }   py-4  px-2  hover:border-white transition`}
+            }   py-4  px-2  hover:border-whiteLike transition`}
           >
             Saved
           </p>
